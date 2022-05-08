@@ -36,6 +36,7 @@ public class TestCase1 {
     private static final SelenideElement LAST_CHECKOUT = $x("//*[@name='processCarrier']");
     private static final SelenideElement PAY_BY_BANK = $x("//*[@title='Pay by bank wire']");
     private static final SelenideElement CONFIRM_ORDER = $x("//button[@class='button btn btn-default button-medium']");
+    private static final SelenideElement FINAL_TEXT = $x("//*[contains(text(), 'Your order on My Store is complete')]");
 
     @Test
     public void testOpenMainPage() {
@@ -72,6 +73,7 @@ public class TestCase1 {
         payByBank();
 
         confirmOrder();
+        Assertions.assertEquals("Your order on My Store is complete", FINAL_TEXT.getText(), "Text about completing order hasn't appeared");
     }
     public void clickSignInBtn() {
         SIGN_IN_BTN.click();
