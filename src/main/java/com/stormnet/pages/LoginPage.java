@@ -2,8 +2,10 @@ package com.stormnet.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage {
@@ -18,6 +20,12 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = "SubmitLogin")
     private SelenideElement submitLoginButton;
+
+    @FindBy(id = "email_create")
+    private SelenideElement enterEmailForRegistration;
+
+    @FindBy(id = "SubmitCreate")
+    private SelenideElement registrationButton;
 
     @Override
     public boolean isPageOpened() {
@@ -43,6 +51,16 @@ public class LoginPage extends BasePage {
     public MyAccountPage clickSubmitLoginButton() {
         submitLoginButton.shouldHave(Condition.visible).click();
         return page(MyAccountPage.class);
+    }
+
+    public LoginPage enterRandomEmail(String emailvalue) {
+        enterEmailForRegistration.shouldHave(Condition.visible).setValue(emailvalue);
+        return this;
+    }
+
+    public CreateAccountPage clickOnRegisterButton() {
+        registrationButton.shouldHave(Condition.visible).click();
+        return page(CreateAccountPage.class);
     }
 
 }
