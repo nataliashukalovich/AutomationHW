@@ -36,7 +36,7 @@ public class POMSendEmailToCustomerService extends BaseTest {
                 .addAliasAddress(ALIAS_VALUE);
         MyAccountPage myAccountPage = createAccountPage.clickRegisterButton();
         Assertions.assertTrue(myAccountPage.isPageOpened());
-        ProductGridPage productGridPage = myAccountPage.clickOnDressesButton();
+        DressesProductGridPage productGridPage = myAccountPage.clickOnDressesButton();
         Assertions.assertTrue(productGridPage.isPageOpened(), "Page with products hasn't opened");
         productGridPage
                 .clickOnCasualDressesButton()

@@ -5,27 +5,18 @@ import com.codeborne.selenide.SelenideElement;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage {
-    @FindBy(className = "page-heading")
-    private SelenideElement pageHeader;
 
-    @FindBy(id = "email")
-    private SelenideElement emailInput;
-
-    @FindBy(id = "passwd")
-    private SelenideElement passwordInput;
-
-    @FindBy(id = "SubmitLogin")
-    private SelenideElement submitLoginButton;
-
-    @FindBy(id = "email_create")
-    private SelenideElement enterEmailForRegistration;
-
-    @FindBy(id = "SubmitCreate")
-    private SelenideElement registrationButton;
+    private SelenideElement pageHeader = $(byClassName("page-heading"));
+    private SelenideElement emailInput = $(byId("email"));
+    private SelenideElement passwordInput = $(byId("passwd"));
+    private SelenideElement submitLoginButton = $(byId("SubmitLogin"));
+    private SelenideElement enterEmailForRegistration = $(byId("email_create"));
+    private SelenideElement registrationButton = $(byId("SubmitCreate"));
 
     @Override
     public boolean isPageOpened() {
@@ -60,7 +51,7 @@ public class LoginPage extends BasePage {
 
     public CreateAccountPage clickOnRegisterButton() {
         registrationButton.shouldHave(Condition.visible).click();
-        return page(CreateAccountPage.class);
+        return new CreateAccountPage();
     }
 
 }

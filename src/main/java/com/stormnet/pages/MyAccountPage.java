@@ -2,26 +2,30 @@ package com.stormnet.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.page;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Selenide.*;
 
 public class MyAccountPage extends BasePage {
 
-    @FindBy(className = "info-account")
-    private SelenideElement infoAccount;
-
-    @FindBy(xpath = "(//a[@title='Dresses'])[2]")
-    private SelenideElement dressesButton;
+    private SelenideElement infoAccount = $(By.className("info-account"));
+    private SelenideElement dressesButton = $x("(//a[@title='Dresses'])[2]");
+    private SelenideElement tShirtsButton = $x("(//a[@title='T-shirts'])[2]");
 
     @Override
     public boolean isPageOpened() {
         return infoAccount.isDisplayed();
     }
 
-    public ProductGridPage clickOnDressesButton() {
-        dressesButton.shouldHave(Condition.visible).click();
-        return page(ProductGridPage.class);
+    public TshirtsProductGridPage clickOnTshirtsButton() {
+        tShirtsButton.shouldHave(Condition.visible, Duration.ofSeconds(10)).click();
+        return new TshirtsProductGridPage();
     }
+    public DressesProductGridPage clickOnDressesButton() {
+        dressesButton.shouldHave(Condition.visible).click();
+        return new DressesProductGridPage();
+    }
+
 }

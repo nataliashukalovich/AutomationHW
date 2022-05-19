@@ -2,6 +2,7 @@ package com.stormnet.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 import java.time.Duration;
@@ -12,69 +13,32 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
 public class CreateAccountPage extends BasePage{
-    @FindBy(className = "navigation_page")
-    private SelenideElement pageHeaderAuthentication;
+
+    private SelenideElement pageHeaderAuthentication = $(By.className("navigation_page"));
 
     @Override
     public boolean isPageOpened() {
         return pageHeaderAuthentication.isDisplayed();
     }
 
-    @FindBy(id = "id_gender1")
-    private SelenideElement title;
-
-    @FindBy(id = "customer_firstname")
-    private SelenideElement customerFirstName;
-
-    @FindBy(id = "customer_lastname")
-    private SelenideElement customerLastname;
-
-    @FindBy(id = "passwd")
+    private SelenideElement title = $(byId("id_gender1"));
+    private SelenideElement customerFirstName = $(byId("customer_firstname"));
+    private SelenideElement customerLastname = $(byId("customer_lastname"));
     private SelenideElement password = $(byId("passwd"));
-
-    @FindBy(id = "days")
-    private SelenideElement dayOfBirth;
-
-    @FindBy(id = "months")
-    private SelenideElement monthOfBirth;
-
-    @FindBy(id = "years")
-    private SelenideElement yearOfBirth;
-
-    @FindBy(id = "newsletter")
-    private SelenideElement newsletterCheckbox;
-
-    @FindBy(id = "optin")
-    private SelenideElement receiveOffersCheckbox;
-
-    @FindBy(id = "company")
-    private SelenideElement company;
-
-    @FindBy(id = "address1")
-    private SelenideElement address;
-
-    @FindBy(id = "city")
-    private SelenideElement city;
-
-    @FindBy(id = "id_state")
-    private SelenideElement state;
-
-    @FindBy(id = "postcode")
-    private SelenideElement postcode;
-
-    @FindBy(id = "other")
-    private SelenideElement additionalInformation;
-
-    @FindBy(id = "phone")
-    private SelenideElement homePhone;
-
-    @FindBy(id = "phone_mobile")
-    private SelenideElement mobilePhone;
-
-    @FindBy(id = "alias")
-    private SelenideElement aliasAddress;
-
-    @FindBy(id = "submitAccount")
+    private SelenideElement dayOfBirth = $(byId("days"));
+    private SelenideElement monthOfBirth = $(byId("months"));
+    private SelenideElement yearOfBirth = $(byId("years"));
+    private SelenideElement newsletterCheckbox = $(byId("newsletter"));
+    private SelenideElement receiveOffersCheckbox = $(byId("optin"));
+    private SelenideElement company = $(byId("company"));
+    private SelenideElement address = $(byId("address1"));
+    private SelenideElement city = $(byId("city"));
+    private SelenideElement state = $(byId("id_state"));
+    private SelenideElement postcode = $(byId("postcode"));
+    private SelenideElement additionalInformation = $(byId("other"));
+    private SelenideElement homePhone = $(byId("phone"));
+    private SelenideElement mobilePhone = $(byId("phone_mobile"));
+    private SelenideElement aliasAddress = $(byId("alias"));
     private SelenideElement registrationButton = $(byId("submitAccount"));
 
     public CreateAccountPage selectTitle() {
@@ -169,6 +133,6 @@ public class CreateAccountPage extends BasePage{
 
     public MyAccountPage clickRegisterButton() {
         registrationButton.should(visible, Duration.ofSeconds(20)).click();
-        return page(MyAccountPage.class);
+        return new MyAccountPage();
     }
 }
