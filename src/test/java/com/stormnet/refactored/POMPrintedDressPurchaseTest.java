@@ -17,7 +17,7 @@ public class POMPrintedDressPurchaseTest extends BaseTest {
         Assertions.assertTrue(loginPage.isPageOpened(), "Login page was not opened!");
         MyAccountPage myAccountPage = loginPage.login(EMAIL, PW);
         Assertions.assertTrue(myAccountPage.isPageOpened(), "Expected message hasn't appeared");
-        ProductGridPage productGridPage = myAccountPage.clickOnDressesButton();
+        DressesProductGridPage productGridPage = myAccountPage.clickOnDressesButton();
         Assertions.assertTrue(productGridPage.isPageOpened(), "Page with products hasn't opened");
         productGridPage
                 .clickOnCasualDressesButton()
@@ -34,7 +34,7 @@ public class POMPrintedDressPurchaseTest extends BaseTest {
                 .switchToPaymentTab()
                 .choosePayByBankButton()
                 .confirmOrder();
-        Assertions.assertTrue(cartSummaryPage.isOrderConfirmed(), "Order is not confirmed!");
+        Assertions.assertTrue(cartSummaryPage.isOrderConfirmed(), "Ord");
 
     }
 

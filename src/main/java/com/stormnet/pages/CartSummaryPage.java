@@ -10,29 +10,15 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CartSummaryPage extends BasePage{
 
-    @FindBy(id = "cart_title")
-    private SelenideElement cartTitleLabel;
-
-    @FindBy(xpath = "//a[@title='Proceed to checkout' and @class='button btn btn-default standard-checkout button-medium']")
-    private SelenideElement proceedToCheckoutSummary;
-
-    @FindBy(xpath = "//*[@type='submit']//span[.='Proceed to checkout']")
-    private SelenideElement proceedToCheckoutAdresses;
-
-    @FindBy(id="cgv")
-    private SelenideElement checkboxIAgree;
-
-    @FindBy(xpath = "//*[@name='processCarrier']")
-    private SelenideElement proceedToCheckoutShipping;
-
-    @FindBy(xpath = "//*[@title='Pay by bank wire']")
-    private SelenideElement payByBankButton;
-
-    @FindBy(xpath = "//button[@class='button btn btn-default button-medium']")
-    private SelenideElement confirmOrderButton;
-
-    @FindBy(xpath = "//*[contains(text(), 'Your order on My Store is complete.')]")
-    private SelenideElement orderConfirmationTextLabel;
+    private SelenideElement cartTitleLabel = $(byId("cart_title"));
+    private SelenideElement proceedToCheckoutSummary = $x("//a[@title='Proceed to checkout' " +
+            "and @class='button btn btn-default standard-checkout button-medium']");
+    private SelenideElement proceedToCheckoutAdresses = $x("//*[@type='submit']//span[.='Proceed to checkout']");
+    private SelenideElement checkboxIAgree = $(byId("cgv"));
+    private SelenideElement proceedToCheckoutShipping = $x("//*[@name='processCarrier']");
+    private SelenideElement payByBankButton = $x("//*[@title='Pay by bank wire']");
+    private SelenideElement confirmOrderButton = $x("//button[@class='button btn btn-default button-medium']");
+    private SelenideElement orderConfirmationTextLabel = $x("//*[contains(text(), 'Your order on My Store is complete.')]");
 
     @Override
     public boolean isPageOpened() {

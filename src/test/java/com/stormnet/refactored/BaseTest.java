@@ -13,6 +13,8 @@ public abstract class BaseTest {
 
     protected static final String EMAIL = "natallie.ponomareva@gmail.com";
     protected static final String PW = "ZHB@fq86S7Kp29K";
+    protected static final String CUSTOMERS_EMAIL = "fake_email_12345@mail.ru";
+    protected final static String CUSTOMERS_PW = "fakepassword12345";
     protected static final String RANDOM_EMAIL = RandomStringUtils.randomAlphabetic(5) + "@gmail.com";
     protected static final String NAME = "Ivan";
     protected static final String SURNAME = "Ivanov";
@@ -29,5 +31,9 @@ public abstract class BaseTest {
     protected static final String HOME_PHONE_VALUE = "+375292929297";
     protected static final String MOBILE_PHONE_VALUE = "+375333333333";
     protected static final String ALIAS_VALUE = "18, Baker Street";
+
+    protected static final String COMMENT_TITLE = "High quality product";
+    protected static final String COMMENT_BODY = "Faded short sleeve t-shirt with high neckline. Soft and stretchy " +
+            "material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!";
 
 }
