@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -46,6 +47,6 @@ public class MyWishListsPage extends BasePage {
     }
 
     public boolean hasWishListBeenCleared() {
-        return !addedBlouseTile.should(Condition.disappear).isDisplayed();
+        return addedBlouseTile.should(disappear).is(disappear);
     }
 }
