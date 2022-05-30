@@ -5,12 +5,22 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.stormnet.pages.MainPage;
 import com.stormnet.pages.PrintedSummerDressPage;
 import com.stormnet.pages.SummerDressesProductGridPage;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selenide.$;
+import static services.ui.ScreenshotService.uiExecutor;
 
 public class DisplaySummerDressWithDifferentColors extends BaseTest {
 
+    @Epic(value = "Clothes purchasing")
+    @Feature(value = "Colors availability")
+    @Story(value = "Colors availability for dresses")
     @Test
+    @Owner(value = "Natalia Shukalovich")
+    @Description(value = "Checking if different colors are available for summer dress")
     public void showSummerDressWithDifferentColors() {
         MainPage mainPage = Selenide.open(BASE_URL, MainPage.class);
         Assertions.assertTrue(mainPage.isPageOpened(),"Main page was not opened!");
@@ -31,6 +41,6 @@ public class DisplaySummerDressWithDifferentColors extends BaseTest {
         Assertions.assertTrue(Url_blue.contains("color-blue"), "Color is not blue!");
         printedSummerDressPage.selectYellowColor();
         String Url_yellow = WebDriverRunner.getWebDriver().getCurrentUrl();
-        Assertions.assertTrue(Url_yellow.contains("color-yellow"));
+        Assertions.assertTrue(Url_yellow.contains("color-yellow"), "Color is not yellow!");
     }
 }

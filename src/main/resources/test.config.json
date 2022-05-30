@@ -1,0 +1,11 @@
+{
+  "base_url" : "http://automationpractice.com/",
+  "selenium_browser": "chrome",
+  "selenium_browser_version": "97.0",
+  "selenium_timeout": "10000",
+  "selenium_headless": "false",
+  "selenium_vnc": "true",
+  "selenide_screenshots" : "true",
+  "selenide_save_page_source": "false",
+  "selenium_start_maximized": "true"
+}
